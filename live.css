@@ -1,0 +1,139 @@
+/* =========================================================
+   IN-SERVICE PAGES  (edina-live.html, owatonna-live.html)
+   Opened by QR code / tag during service, almost always on a phone.
+   One narrow column everywhere: a home screen of cards, and each card
+   opens its own screen (hash-routed in live.js: #notes, #prayer, #give,
+   #announcements, #guest). Uses tokens from styles.css; nothing here
+   edits the design system.
+   ========================================================= */
+[hidden]{display:none !important}
+:root{--col:max(20px,calc((100vw - 560px)/2))}
+html{scroll-padding-top:90px}
+body.live{background:var(--paper)}
+
+/* ---------- sticky top: brand + give ---------- */
+.live-top{position:sticky;top:0;z-index:50;background:rgba(252,246,237,.94);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 1px 0 var(--line)}
+.live-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px;padding:0 var(--col);color:var(--ink)}
+.live-bar .brand-mark{width:52px;height:30px}
+.live-bar .button{min-height:42px;padding:0 22px;font-size:.9375rem}
+.live-main{padding:0 var(--col)}
+
+/* ---------- screens ---------- */
+.live-view{padding:8px 0 64px;animation:rise .5s var(--ease) both}
+.live-back{display:inline-flex;align-items:center;gap:8px;min-height:48px;font-size:.9375rem;font-weight:600;color:var(--ink)}
+.live-back:hover{color:var(--accent)}
+.live-view h2{margin:6px 0 .3em;font-size:clamp(2.25rem,10.5vw,3.25rem);line-height:1;letter-spacing:-.05em}
+.live-view h2:focus,.live-intro h1:focus{outline:none}
+.live-lead{max-width:26em;margin:0 0 28px;font-size:1.0625rem;line-height:1.55;color:var(--ink-3)}
+.live-card{padding:22px;border:1.5px solid var(--line);border-radius:var(--radius);background:#fff}
+
+/* ---------- home ---------- */
+.live-banner{position:relative;margin:16px 0 0;aspect-ratio:2/1;border-radius:var(--radius);overflow:hidden;background:#2c2d3a}
+.live-banner img{width:100%;height:100%;object-fit:cover}
+.live-banner .photo-note{position:absolute;left:10px;bottom:10px;padding:4px 10px;border-radius:var(--radius-pill);background:rgba(30,31,44,.6);color:#fff;font-size:.75rem}
+.live-intro{padding:28px 0 24px;animation:rise .8s var(--ease) both}
+.live-intro .eyebrow{margin-bottom:14px}
+.live-intro h1{margin:0 0 .2em;font-size:clamp(2.75rem,14vw,4.25rem);font-weight:600;line-height:.95;letter-spacing:-.055em;text-wrap:balance}
+.live-intro h1 em{font-style:normal;color:var(--em)}
+.live-intro>p:not(.eyebrow){max-width:24em;margin:0;font-size:1.0625rem;line-height:1.55;color:var(--ink-3)}
+.message-card{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:36px;padding:20px 22px;border:1.5px solid var(--line);border-radius:var(--radius);background:#fff;color:var(--ink);transition:border-color .25s,transform .25s var(--ease),box-shadow .25s}
+.message-card:hover,.message-card:active{border-color:var(--ink);transform:translateY(-2px);box-shadow:0 14px 32px rgba(44,45,58,.1)}
+.message-card .eyebrow{margin:0 0 6px}
+.message-card strong{display:block;font-size:clamp(1.5rem,7vw,1.875rem);font-weight:600;letter-spacing:-.035em;line-height:1.1}
+.message-card small{display:block;margin-top:6px;font-size:.9375rem;color:var(--ink-3)}
+.message-card .go{flex:none;display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:var(--ink);color:#fff;font-size:1.125rem}
+.tiles-label{margin-bottom:14px}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tile{display:flex;flex-direction:column;justify-content:space-between;gap:30px;min-height:158px;padding:18px;border:1.5px solid var(--line);border-radius:var(--radius);background:#fff;color:var(--ink);text-align:left;transition:border-color .25s,transform .25s var(--ease),background .25s}
+.tile:hover,.tile:active{border-color:var(--ink);transform:translateY(-2px)}
+.tile .ico{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--bone);font-size:1.25rem;line-height:1}
+.tile strong{display:block;font-size:1.0625rem;font-weight:600;letter-spacing:-.02em;line-height:1.2}
+.tile .d{display:block;margin-top:3px;font-size:.8125rem;line-height:1.4;color:var(--ink-3)}
+.tile.wide{grid-column:1/-1;flex-direction:row;align-items:center;justify-content:flex-start;gap:16px;min-height:0}
+
+/* ---------- forms + notes ---------- */
+.live-form input,.live-form select,.live-form textarea,.note-block textarea{width:100%;min-height:54px;padding:14px 16px;border:1.5px solid var(--line);border-radius:12px;background:var(--paper);font:400 1.0625rem/1.45 var(--sans);color:var(--ink)}
+.note-block textarea{background:#fff}
+.note-block textarea,.live-form textarea{min-height:130px;resize:vertical}
+.live-form input:focus,.live-form select:focus,.live-form textarea:focus,.note-block textarea:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent)}
+.note-block{padding:26px 0;border-top:1px solid var(--line)}
+.note-block:first-child{border-top:0;padding-top:8px}
+.note-block .eyebrow{margin-bottom:8px}
+.note-block h3{font-size:clamp(1.5rem,6.5vw,1.875rem);letter-spacing:-.035em}
+.note-block .note-point{margin:8px 0 0;color:var(--ink-2)}
+.note-block label{display:block;margin:18px 0 8px;font-size:.9375rem;font-weight:600;color:var(--ink)}
+.notes-actions{display:grid;gap:12px;padding-top:26px;border-top:1px solid var(--line)}
+.notes-actions .button{width:100%}
+.notes-status{margin:0;min-height:1.4em;text-align:center;font-size:.875rem;color:var(--ink-3)}
+.notes-status.pulse{animation:saved .9s var(--ease)}
+@keyframes saved{0%{opacity:.2;transform:translateY(3px)}100%{opacity:1;transform:none}}
+.notes-intro{margin:0 0 20px;color:var(--ink-3)}
+
+.live-form{display:grid;gap:18px}
+.live-form .field{display:flex;flex-direction:column;gap:8px}
+.live-form label{font-size:.9375rem;font-weight:600;color:var(--ink)}
+.live-form label small{font-weight:400;color:var(--ink-3)}
+.live-form .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.live-check{display:flex;align-items:flex-start;gap:14px;font-size:.9375rem;line-height:1.5;color:var(--ink-2);cursor:pointer}
+.live-check input{flex:none;width:24px;height:24px;min-height:0;margin:0;padding:0;accent-color:var(--ink)}
+.live-check strong{display:block;color:var(--ink)}
+.live-check span span{color:var(--ink-3)}
+.live-actions{display:grid;gap:12px}
+.live-actions .button{width:100%}
+.live-note{margin:0;font-size:.875rem;color:var(--ink-3)}
+.live-status{margin:0;font-weight:600;color:var(--ink)}
+.live-status:empty{display:none}
+.live-done{display:grid;justify-items:start;gap:14px;padding:8px 0;animation:rise .7s var(--ease) both}
+.live-done .tick{display:grid;place-items:center;width:56px;height:56px;border-radius:50%;background:var(--ink);color:#fff;font-size:1.5rem}
+.live-done h3{font-size:clamp(1.75rem,8vw,2.25rem);letter-spacing:-.04em}
+.live-done p{margin:0;color:var(--ink-2)}
+
+/* ---------- give ---------- */
+.give-card{border-radius:var(--radius);background:var(--ink);color:var(--on-dark-2);overflow:hidden}
+.give-row{display:grid;gap:14px;padding:22px;border-top:1px solid rgba(255,255,255,.16)}
+.give-row:first-child{border-top:0}
+.give-row h3{margin-bottom:4px;color:#fff}
+.give-row p{margin:0;font-size:.9375rem;color:var(--on-dark-2)}
+.give-row .button{width:100%}
+.button-ghost{border-color:rgba(255,255,255,.5);color:#fff}
+.button-ghost:hover{background:#fff;color:var(--ink)}
+
+/* ---------- announcements ---------- */
+.announce-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.announce-item{padding:22px 0;border-bottom:1px solid var(--line)}
+.announce-item time{display:block;margin-bottom:8px;font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+.announce-item h3{margin-bottom:6px;font-size:1.375rem}
+.announce-item p{margin:0 0 12px;color:var(--ink-2)}
+.announce-item p:last-child{margin-bottom:0}
+.announce-item .text-link{color:var(--ink)}
+.announce-item .text-link:hover{color:var(--accent)}
+.announce-empty{margin:0;padding:26px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);color:var(--ink-3)}
+
+/* ---------- first time guest ---------- */
+.guest-facts{list-style:none;margin:0 0 28px;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:0 20px}
+.guest-facts li{display:flex;flex-direction:column;gap:2px;padding:14px 0;border-top:1px solid var(--line)}
+.guest-facts strong{font-weight:600;letter-spacing:-.01em;color:var(--ink)}
+.guest-facts span{font-size:.875rem;line-height:1.45;color:var(--ink-3)}
+.guest-faq{margin-bottom:32px}
+.guest-faq details{border-top:1px solid var(--line);padding:18px 0}
+.guest-faq details:last-child{border-bottom:1px solid var(--line)}
+.guest-faq summary{display:flex;align-items:center;justify-content:space-between;gap:16px;cursor:pointer;list-style:none;font-size:1.0625rem;font-weight:600;letter-spacing:-.02em;color:var(--ink)}
+.guest-faq summary::-webkit-details-marker{display:none}
+.guest-faq summary::after{content:'+';flex:none;display:grid;place-items:center;width:34px;height:34px;border:1px solid var(--line);border-radius:50%;font-weight:400;font-size:1.25rem;line-height:1}
+.guest-faq details[open] summary::after{content:'−'}
+.guest-faq details p{margin:12px 0 0;line-height:1.65;color:var(--ink-2)}
+.connect-card h3{margin-bottom:8px;font-size:clamp(1.75rem,7.5vw,2.25rem);letter-spacing:-.04em}
+.connect-card>p{margin:0 0 22px;color:var(--ink-3)}
+
+/* ---------- events (home, bottom; reuses events.css) ---------- */
+.live-events.events-section{margin:44px 0 0;padding:28px 22px;border-radius:20px}
+.live-events .events-top{display:block;margin-bottom:20px}
+.live-events .events-top h2{font-size:clamp(2.25rem,10.5vw,3rem);margin-bottom:.2em}
+.live-events .events-top>p{margin:10px 0 0;max-width:none}
+.live-events .event-row{padding:16px 0}
+
+@media (max-width:380px){.guest-facts{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){
+  .live-view,.live-intro,.live-done{animation:none}
+  .message-card,.tile{transition:none}
+}

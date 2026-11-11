@@ -1,0 +1,11 @@
+{
+  "_note": "SAMPLE DATA. Update weekly. Shared by both campuses. 'id' keys each visitor's saved notes on their phone, so change it every week (a date works). Each section needs title, ref (scripture), point (one line) and prompt (the question for their notes).",
+  "id": "2026-11-15",
+  "title": "Built to Belong",
+  "scripture": "1 Corinthians 12:12–27",
+  "sections": [
+    {"title": "We Belong to a Greater Body", "ref": "1 Corinthians 12:12–14", "point": "We are not meant to do life alone.", "prompt": "What is God teaching me about belonging?"},
+    {"title": "Different by Design", "ref": "1 Corinthians 12:15–20", "point": "Every person has a meaningful contribution.", "prompt": "How has God uniquely equipped me?"},
+    {"title": "Stronger Together", "ref": "1 Corinthians 12:21–27", "point": "We need one another to grow.", "prompt": "What step can I take toward community?"}
+  ]
+}

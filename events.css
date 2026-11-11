@@ -1,0 +1,19 @@
+/* Events feed (campus pages). Rendered by events.js from events.json. */
+.event-feed{min-height:120px}
+.event-list{list-style:none;margin:0;padding:0;border-top:1px solid rgba(255,255,255,.22)}
+.event-item{border-bottom:1px solid rgba(255,255,255,.22)}
+.event-row{display:grid;grid-template-columns:84px 1fr auto;gap:clamp(16px,3vw,36px);align-items:center;padding:clamp(18px,2.2vw,28px) 0;color:#fff;transition:background .25s,padding .25s var(--ease)}
+a.event-row:hover{background:rgba(255,255,255,.06);padding-left:14px;padding-right:14px}
+.event-date{display:flex;flex-direction:column;align-items:center;line-height:1;color:#fff}
+.event-date small{font-size:var(--fs-label);font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-soft)}
+.event-date strong{margin-top:6px;font-size:clamp(2.25rem,4vw,3rem);font-weight:600;letter-spacing:-.05em}
+.event-info strong{display:block;font-size:clamp(1.125rem,1.8vw,1.5rem);font-weight:600;letter-spacing:-.025em;line-height:1.25}
+.event-info span{display:block;margin-top:4px;font-size:var(--fs-small);color:var(--on-dark-2)}
+.event-go{font-size:.9375rem;font-weight:600;white-space:nowrap;color:#fff}
+.event-empty{margin:0;padding:clamp(20px,2.4vw,32px) 0;border-top:1px solid rgba(255,255,255,.22);border-bottom:1px solid rgba(255,255,255,.22);font-size:var(--fs-body);color:var(--on-dark-2)}
+.event-all{margin:clamp(20px,3vw,32px) 0 0}
+.event-all .text-link{color:#fff}
+@media (max-width:760px){
+  .event-row{grid-template-columns:60px 1fr;gap:6px 16px}
+  .event-go{grid-column:2}
+}

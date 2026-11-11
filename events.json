@@ -1,0 +1,8 @@
+{
+  "_note": "SAMPLE DATA. Replace with the feed published from Planning Center Calendar (via Make/Zapier). Fields: title, start, end (ISO 8601 with offset), campus (array of 'edina' and/or 'owatonna'; use both for church-wide), url (Church Center event page), optional description.",
+  "events": [
+    {"title":"Remember the Orphans Sunday","start":"2026-12-06T09:00:00-06:00","end":"2026-12-06T12:00:00-06:00","campus":["edina"],"url":"https://cfcchurches.org/event/remember-the-orphans-sunday/"},
+    {"title":"Wise 60+ Christmas Party","start":"2026-12-13T12:00:00-06:00","end":"2026-12-13T14:00:00-06:00","campus":["edina"],"url":"https://cfcchurches.org/event/wise-60-christmas-party/"},
+    {"title":"The King’s Christmas Musical","start":"2026-12-20T09:00:00-06:00","end":"2026-12-20T12:00:00-06:00","campus":["edina"],"url":"https://cfcchurches.org/events/category/edina/"}
+  ]
+}

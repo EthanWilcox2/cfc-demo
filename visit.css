@@ -1,0 +1,60 @@
+/* =========================================================
+   PLAN A VISIT additions (campus pages)
+   Uses tokens from styles.css. Merge into section 7 of
+   styles.css when convenient; kept separate so the design
+   system file stays untouched.
+   ========================================================= */
+
+/* quick facts under the intro copy */
+.visit-facts{list-style:none;margin:0 0 34px;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:0 28px;max-width:34em}
+.visit-facts li{display:flex;flex-direction:column;gap:2px;padding:16px 0;border-top:1px solid var(--line)}
+.visit-facts strong{font-size:1rem;font-weight:600;letter-spacing:-.01em;color:var(--ink)}
+.visit-facts span{font-size:var(--fs-small);line-height:1.5;color:var(--ink-3)}
+
+/* two buttons: directions + let us know */
+.visit-actions{display:flex;flex-wrap:wrap;gap:12px}
+
+/* low-pressure reassurance + cross-campus link */
+.visit-copy p.visit-note:not(.eyebrow){margin:22px 0 0;max-width:30em;font-size:var(--fs-small);line-height:1.6;color:var(--ink-3)}
+.visit-note a{color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.visit-note a:hover{color:var(--accent)}
+
+/* address in the card is now tap-to-map */
+.visit-details .visit-address{line-height:1.55}
+
+/* FAQ on campus pages: reuses .faq-section/.faq-list from about */
+.faq-section.visit-faq{border-top:0}
+.faq-heading>p:last-child:not(.eyebrow){max-width:22em;margin:0;font-size:var(--fs-body);line-height:1.65;color:var(--ink-3)}
+
+@media (max-width:520px){
+  .visit-facts{grid-template-columns:1fr}
+  .visit-actions{flex-direction:column;align-items:stretch}
+}
+
+/* photo blocks (sample photos until real ones arrive) */
+.photo-block{position:relative;margin:0;border-radius:var(--radius);overflow:hidden;background:#2c2d3a;aspect-ratio:16/9}
+.photo-block img{width:100%;height:100%;object-fit:cover}
+.visit-side{display:grid;gap:20px}
+.visit-photo{aspect-ratio:16/10}
+.kids-head{padding-bottom:clamp(32px,4vw,56px)}
+.kids-head .photo-block{aspect-ratio:21/9}
+@media (max-width:760px){.kids-head .photo-block{aspect-ratio:16/10}}
+
+/* "Let us know you're coming" form */
+.coming-section{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(40px,8vw,120px);background:var(--bone)}
+.coming-heading>p:last-child:not(.eyebrow){max-width:22em;margin:0;font-size:var(--fs-body);line-height:1.65;color:var(--ink-3)}
+.coming-form{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.coming-form .field{display:flex;flex-direction:column;gap:8px}
+.coming-form .field.wide{grid-column:1/-1}
+.coming-form label{font-size:var(--fs-small);font-weight:600;color:var(--ink)}
+.coming-form label small{font-weight:400;color:var(--ink-3)}
+.coming-form input,.coming-form select,.coming-form textarea{width:100%;min-height:54px;padding:14px 18px;border:1.5px solid var(--line);border-radius:12px;background:var(--paper);font:400 var(--fs-body)/1.4 var(--sans);color:var(--ink)}
+.coming-form textarea{min-height:120px;resize:vertical}
+.coming-form input:focus,.coming-form select:focus,.coming-form textarea:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent)}
+.coming-form .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.coming-actions{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:16px}
+.coming-note{margin:0;font-size:.875rem;color:var(--ink-3)}
+.coming-status{grid-column:1/-1;margin:0;font-weight:600;color:var(--ink)}
+.coming-status:empty{display:none}
+@media (max-width:1000px){.coming-section{grid-template-columns:1fr}}
+@media (max-width:640px){.coming-form{grid-template-columns:1fr}}

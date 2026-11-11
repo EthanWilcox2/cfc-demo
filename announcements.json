@@ -1,0 +1,8 @@
+{
+  "_note": "SAMPLE DATA. Fields: title, body, campus (array of 'edina' and/or 'owatonna'; use both for church-wide), optional date (display label, e.g. 'Dec 6'), optional link {label, url}, optional until (ISO 8601 with offset; the item hides itself after this time). Items show in the order listed.",
+  "items": [
+    {"title": "Prayer teams are available", "body": "Prayer teams are available at the end of every service if you would like someone to pray with you.", "campus": ["edina", "owatonna"]},
+    {"title": "Remember the Orphans Sunday", "date": "Dec 6", "body": "Join us for a special Sunday gathering.", "campus": ["edina"], "link": {"label": "Event details", "url": "https://cfcchurches.org/event/remember-the-orphans-sunday/"}, "until": "2026-12-06T12:00:00-06:00"},
+    {"title": "Wise 60+ Christmas Party", "date": "Dec 13", "body": "Come celebrate the season together.", "campus": ["edina"], "link": {"label": "Event details", "url": "https://cfcchurches.org/event/wise-60-christmas-party/"}, "until": "2026-12-13T14:00:00-06:00"}
+  ]
+}
